@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="weatherApp.css">
+</head>
+<body>
+    <!-- title starts-->
+     <div class="text-center mt-2 d-flex justify-content-center">
+          <h1 class="fst-italic">Current Weather</h1>
+          <img class="weather-icon ms-2" src="https://static.vecteezy.com/system/resources/previews/049/568/238/non_2x/3d-icon-weather-day-rain-png.png" alt="">
+    </div>
+    <!-- title ends-->
+
+    <!-- search box and button starts -->
+    <div class="container mt-3 d-flex justify-content-center ">
+        <div class="d-flex justify-content-between w-75">
+            <div class="input-group mb-2">
+                <input type="text" class="form-control shadow-lg" id="searchCityName" placeholder="Enter City" aria-label="Recipient’s username" aria-describedby="button-addon2">
+                <button class="btn btn-secondary" type="button" onclick="weather()" id="button-addon2 shadow-lg">Fetch</button>
+            </div>
+        </div>
+    </div>
+    <!-- search box and button ends -->
+
+    <!-- if user not entered a valid city then display below error box -->
+        <div class="d-flex justify-content-center">
+           <div class="alert alert-danger w-50 text-center fs-5 mb-0 mt-2 fw-semibold shadow-lg" style="display: none;" id="errorBox" role="alert">
+            ❌ City not found! Please enter a valid city name.
+          </div> 
+        </div>
+     <!-- error box ends   -->
+
+     <!-- weather details starts -->
+ 
+    <div class="container mt-3 mb-5 w-75 card shadow-lg p-3  weather-card-bg">
+       <div class="d-flex justify-content-around">
+            <p class="fw-semibold fs-4 ">City : <text class="fs-4" id="cityName"></text> </p>
+            <p class="fw-semibold fs-4">Country : <text class="fs-4" id="countryName"></text> </p>
+       </div>
+       <div class="d-flex justify-content-around">
+         <p class="fw-semibold">Dtae : <text id="date"></text></p>
+         <p class="fw-semibold">Time : <text id="time"></text></p>
+       </div>
+
+       <div class="d-flex justify-content-around mb-4 mt-4 temp">
+           <div>
+              <img src="" class="ms-5 " id="imageIcon" alt="">
+            </div>
+            <div class="card p-3 Weatherdetails">
+               <p class="fw-semibold">Temp : <text id="tempC"></text></p>
+               <p class="fw-semibold">Feels Like : <text id="feelsC"></text></p>
+               <p class="fw-semibold">Weather type : <text id="weather-Type"></text></p>
+               <p class="fw-semibold">Description : <text id="description"></text></p>
+            </div>
+       </div>
+        <div class="container text-center card p-3  ">
+            <div class="row ">
+                <div class="col-md-5 col-lg-3">
+                   <p class="p-0 fw-semibold">Min Temp : <text id="MinTempC"></text> </p>
+                </div>
+                <div class="col-md-5 col-lg-3">
+                   <p class="p-0 fw-semibold">Max Temp : <text id="MaxTempC"></text> </p>
+                </div>
+                <div class="col-md-5 col-lg-3">
+                   <p class="p-2 fw-semibold">Humidity : <text id="Humidity"></text> </p>
+                </div>
+                <div class="col-md-5 col-lg-3">
+                  <p class="p-2 fw-semibold">Pressure : <text id="pressure"></text> </p>
+                </div>
+                 <div class="col-md-5 col-lg-3">
+                  <p class="p-2 fw-semibold">Wind : <text id="wind"></text> </p>
+                </div>
+                 <div class="col-md-5 col-lg-3">
+                  <p class="p-2 fw-semibold">Visibility : <text id="visibility"></text> </p>
+                </div>
+                <div class="col-md-5 col-lg-3">
+                  <p class="p-2 fw-semibold">Sunrise : <text id="sunrise"></text> </p>
+                </div>
+                <div class="col-md-5 col-lg-3">
+                  <p class="p-2 fw-semibold">Sunset : <text id="sunset"></text> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- weather details ends -->
+
+    <!-- forecast title starts -->
+    <div class="d-flex justify-content-center">
+      <h2 class="fst-italic text-center">Weather Forecast </h2>
+      <img class="forecast-icon ms-2 " src="https://static.vecteezy.com/system/resources/previews/049/568/238/non_2x/3d-icon-weather-day-rain-png.png" alt="">
+    </div>
+     <!-- forecast title ends -->
+
+     <!-- display forecast detalis starts-->
+    <div class="container  text-center">
+      <div class="row gy-5">
+        <div id="forecast" class="col-md-5 col-lg-3 d-flex justify-content-around flex-wrap w-100">
+          <div class=" p-3 gap-3 forecast-card-color rounded-2 forecast-card" style="display: none;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- display forecast detalis ends-->
+      
+     
+    <script src="weatherApp.js"></script>
+</body>
+</html>
